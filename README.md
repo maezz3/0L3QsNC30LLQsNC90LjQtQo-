@@ -14,8 +14,8 @@
 ## 🛠 Технологии
 
 - **Frontend**: 
-  ![React](https://img.shields.io/badge/React-18.2-blue)
-  ![React Router](https://img.shields.io/badge/React_Router-6.3-orange)
+  ![React](https://img.shields.io/badge/React-19.0.0-blue)
+  ![React Router](https://img.shields.io/badge/React_Router-7.4.0-orange)
   ![CSS Modules](https://img.shields.io/badge/CSS_Modules-✓-purple)
 
 ## 📂 Структура проекта

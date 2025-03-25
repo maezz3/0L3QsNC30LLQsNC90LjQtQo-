@@ -21,6 +21,17 @@
     margin-left: 30px;
 }
 
+.logolink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+.logolink:hover {
+    opacity: 0.8;
+}
+
 .siteName {
     color: #B1BECE;
     text-shadow: 0px 4px 2.4px 0px #2D7199;

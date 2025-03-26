@@ -1,0 +1,91 @@
+.content {
+    display: flex;
+    padding: 20px 57px;
+    color: white;
+    gap: 40px;
+}
+
+.leftColumn {
+    flex: 0 0 min(600px, 100%);
+}
+
+.rightColumn {
+    flex: 1;
+    min-width: 300px;
+}
+
+.leftText {
+    width: 672px;
+    margin-left: 30px;
+    margin-right: 100px;
+}
+
+.leftTextFirst {
+    font-family: 'Geologica', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    height: 108px;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+
+.leftTextSecond {
+    font-family: 'Geologica', sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+.fileUpload {
+    flex: 1;
+    border: 2px dashed #007BFF;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 100px;
+    margin-top: 50px;
+    height: 150px;
+}
+
+.fileUpload.dragging {
+    border-color: #0056b3;
+    background-color: rgba(0, 86, 179, 0.1);
+}
+
+.fileInput {
+    display: none;
+}
+
+.fileLabel {
+    display: block;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 10px;
+    font-family: 'Geologica', sans-serif;
+}
+
+.fileHint {
+    font-size: 14px;
+    color: #ccc;
+    font-family: 'Geologica', sans-serif;
+}
+
+.preview {
+    margin-top: 50px;
+    text-align: center;
+    flex-basis: 100%;
+}
+
+.preview img {
+    max-width: 441px;
+    max-height: 382px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    object-fit: contain;
+    height: auto;
+}

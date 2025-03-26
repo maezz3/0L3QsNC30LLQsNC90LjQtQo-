@@ -1,4 +1,5 @@
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,6 +7,7 @@
   }
   
 .app {
+    padding-top: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +89,7 @@ form {
 .submit-btn {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(to right, #2575fc, #6a11cb);
+    background: linear-gradient(to right, #2575fc, #010002);
     color: white;
     border: none;
     border-radius: 8px;

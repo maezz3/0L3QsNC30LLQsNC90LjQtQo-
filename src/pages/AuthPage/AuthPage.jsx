@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 import './AuthPage1.css'
 import '../../styles/global.css';
 
@@ -42,7 +43,7 @@ const AuthPage = () => {
 
   return (
     <div className="page">
-      <div className="container">
+      
         <Header />
         <div className="app">
           <div className="auth-container">
@@ -115,7 +116,7 @@ const AuthPage = () => {
             </div>
           </div>
         </div>
-      </div>
+        <Footer />
     </div>
   );
 };

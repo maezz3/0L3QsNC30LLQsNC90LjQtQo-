@@ -7,10 +7,23 @@
         #020202F7 90%
     );
     color: white;
+    position: fixed; /* Фиксируем наверху */
+    top: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(10px); /* Размытие под хедером */
+    z-index: 1000; /* Чтобы был поверх других элементов */
+    transition: all 0.3s ease; /* Плавные изменения */
+}
+
+.scrolled {
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Тень при прокрутке */
 }
 
 .headerContainer {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
 }

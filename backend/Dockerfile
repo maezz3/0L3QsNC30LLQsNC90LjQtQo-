@@ -17,7 +17,7 @@ RUN pip install poetry && \
     pip install -U pip setuptools wheel
 
 # Копируем остальные файлы проекта
-COPY . /app/
+COPY .. /app/
 
 # Собираем статику (если нужно)
 RUN python manage.py collectstatic --noinput

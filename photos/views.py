@@ -1,51 +1,54 @@
-from rest_framework.views import APIView
+from rest_framework import viewsets, status
 from rest_framework.response import Response
-from rest_framework import status
 from .models import Photo
 from .serializers import PhotoSerializer
-from django.core.files.storage import default_storage
-from django.core.files.base import ContentFile
+import os
+from datetime import datetime
 
 
-class UploadPhotoView(APIView):
-    def post(self, request, *args, **kwargs):
-        # # Проверяем, что файл передан
-        # if 'image' not in request.FILES:
-        #     return Response({'error': 'No image provided'}, status=status.HTTP_400_BAD_REQUEST)
-        #
-        # image_file = request.FILES['image']
-        #
-        # # Проверяем формат файла
-        # if not image_file.name.lower().endswith('.jpeg'):
-        #     return Response({'error': 'Only JPEG files are allowed'}, status=status.HTTP_400_BAD_REQUEST)
-        #
-        # # Сохраняем оригинальное изображение
-        # photo = Photo(image=image_file)
-        # photo.save()
-        #
-        # # Обрабатываем изображение (здесь можно добавить свою функцию обработки)
-        # processed_image_path = self.process_image(photo.image.path)
-        #
-        # # Возвращаем обработанное изображение
-        # with open(processed_image_path, 'rb') as f:
-        #     processed_image_data = f.read()
-        #
-        # return Response(processed_image_data, content_type='image/jpeg')
-        if 'image' not in request.FILES:
-            return Response({'error': 'No image provided'}, status=status.HTTP_400_BAD_REQUEST)
+class PhotoViewSet(viewsets.ModelViewSet):
+    queryset = Photo.objects.all()
+    serializer_class = PhotoSerializer
 
-        image_file = request.FILES['image']
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
-        if not image_file.name.lower().endswith(('.jpg', '.jpeg')):
-            return Response({'error': 'Only JPEG files are allowed'}, status=status.HTTP_400_BAD_REQUEST)
+        image_file = request.FILES.get('image')
+        if not image_file:
+            return Response(
+                {'error': 'No image provided'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
-        photo = Photo(image=image_file)
+        # Создаем новое имя для измененного файла
+        original_name, ext = os.path.splitext(image_file.name)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        edited_image_name = f"{original_name}_edited_{timestamp}{ext}"
+
+        photo = Photo(
+            title=request.data.get('title', ''),
+            image=image_file,
+            edited_image_name=edited_image_name  # Сохраняем название измененного файла
+        )
         photo.save()
 
-        return Response({'message': 'Image uploaded successfully'}, status=status.HTTP_201_CREATED)
+        # Здесь можно добавить обработку изображения
+        # После обработки можно обновить edited_image_name, если нужно
+        # self.process_image(photo.image.path)
+
+        return Response(
+            {
+                'message': 'Image uploaded successfully',
+                'id': photo.id,
+                'original_image': photo.image.name,
+                'edited_image_name': photo.edited_image_name
+            },
+            status=status.HTTP_201_CREATED
+        )
 
     def process_image(self, image_path):
-        # Здесь можно добавить свою функцию обработки изображения
-        # Например, изменение размера, фильтры и т.д.
-        # Пока просто возвращаем оригинальное изображение
+        """Метод обработки изображения"""
+        # Здесь можно реализовать изменение изображения
+        # и обновить edited_image_name, если нужно
         return image_path

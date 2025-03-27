@@ -1,0 +1,53 @@
+.accordion {
+    font-family: 'Geologica', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    color: white;
+    margin: 100px 0;
+    width: 645px;
+    margin-left: 64px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.title {
+    flex-grow: 1;
+}
+
+.arrow {
+    margin-left: 20px;
+}
+
+.content {
+    padding: 20px 0;
+}
+
+.exampleContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.example {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 0;
+}
+
+.exampleImage {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 300;
+}

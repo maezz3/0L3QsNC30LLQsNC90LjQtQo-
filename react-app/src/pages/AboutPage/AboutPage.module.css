@@ -1,0 +1,168 @@
+.aboutPage {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+.team {
+    margin: 60px 0;
+}
+
+.teamGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.memberCard {
+    color: white;
+    background: #143041;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.memberPhoto {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 15px;
+    border: 3px solid #48B8FB;
+}
+
+.memberRole {
+    color: #48B8FB;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.history {
+    margin: 60px 0;
+}
+
+.contact {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.contactForm {
+    display: grid;
+    gap: 20px;
+    max-width: 600px;
+    margin: 30px auto 0;
+}
+
+.contactForm input,
+.contactForm textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #48B8FB;
+    border-radius: 5px;
+    color: black;
+}
+
+.mission {
+    background: rgb(22, 176, 214);
+    padding: 30px;
+    border-radius: 10px;
+    margin: 40px 0;
+    text-align: center;
+    font-size: 20px;
+}
+
+.submitButton {
+    background: #48B8FB;
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.submitButton:hover {
+    background: #3B617F;
+}
+
+.timeline {
+    position: relative;
+    margin-top: 30px;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #48B8FB;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1.5s ease-out;
+}
+
+.timeline.animated::before {
+    transform: scaleY(1);
+}
+
+.timelineItem {
+    position: relative;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.timelineItem:hover .timelineYear {
+    transform: scale(1.1);
+    background: #48B8FB;
+}
+  
+.timelineItem:hover .timelineContent {
+    border-color: #48B8FB;
+    box-shadow: 0 0 15px rgba(72, 184, 251, 0.3);
+}
+
+.timelineItem.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+  
+
+.timelineYear {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #2D78D3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.timelineContent {
+    background: rgba(7, 33, 56, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 30px;
+    border: 1px solid #2D78D3;
+    transition: all 0.3s ease;
+}
+
+.timelineContent h3 {
+    margin-top: 0;
+    color: #48B8FB;
+}

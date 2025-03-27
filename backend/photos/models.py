@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class Photo(models.Model):
@@ -6,11 +9,7 @@ class Photo(models.Model):
     image = models.ImageField(upload_to='photos/')
     edited_image_name = models.CharField(max_length=255, blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='photos')
 
     def __str__(self):
-        base = f"Photo {self.id}"
-        if self.title:
-            base += f" - {self.title}"
-        if self.edited_image_name:
-            base += f" (Edited: {self.edited_image_name})"
-        return base
+        return f"{self.title} (User: {self.user.username})"

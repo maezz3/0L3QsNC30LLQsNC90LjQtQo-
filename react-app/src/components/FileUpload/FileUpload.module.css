@@ -89,3 +89,76 @@
     object-fit: contain;
     height: auto;
 }
+
+.submitButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Geologica', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+    background-color: #0056b3;
+}
+
+.submitButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 3px solid white;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.message {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 5px;
+    font-family: 'Geologica', sans-serif;
+    font-size: 14px;
+    text-align: center;
+}
+  
+.message.success {
+    background-color: rgba(40, 167, 69, 0.2);
+    border: 1px solid #28a745;
+    color: #28a745;
+}
+  
+.message.error {
+    background-color: rgba(220, 53, 69, 0.2);
+    border: 1px solid #dc3545;
+    color: #dc3545;
+}
+  
+.message.info {
+    background-color: rgba(23, 162, 184, 0.2);
+    border: 1px solid #17a2b8;
+    color: #17a2b8;
+}
+  
+.preview h3 {
+    font-family: 'Geologica', sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: white;
+}

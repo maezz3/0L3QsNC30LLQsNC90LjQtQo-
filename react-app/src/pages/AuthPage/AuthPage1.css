@@ -134,3 +134,22 @@ form {
         padding: 0;
     }
 }
+
+.invalid {
+border-color: #ff4444;
+}
+
+.error-text {
+color: #ff4444;
+font-size: 0.8rem;
+margin-top: 0.2rem;
+display: block;
+}
+
+.error-message {
+color: #ff4444;
+padding: 0.5rem;
+margin-bottom: 1rem;
+background-color: #ffebee;
+border-radius: 4px;
+}

@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 import styles from './Header.module.css';
 
 const Header = () => {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isAuthenticated, user } = useContext(AuthContext); // Получаем статус авторизации
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,16 +28,32 @@ const Header = () => {
         <nav className={styles.nav}>
           {location.pathname !== '/about' && (
             <button className={styles.navButton}>
-              <a href="/about" className={styles.navLink}>О нас</a>
+              <Link to="/about" className={styles.navLink}>
+                О нас
+              </Link>
             </button>
           )}
           <button className={styles.navButton}>
-            <a href="#tech" className={styles.navLink}>Технологии</a>
+            <Link to="#tech" className={styles.navLink}>
+              Технологии
+            </Link>
           </button>
-          {location.pathname !== '/auth' && (
-            <button className={styles.navButton}>
-                <a href="/auth" className={styles.navLink}>Вход/Регистрация</a>
-            </button>
+          {isAuthenticated ? (
+            location.pathname !== '/dashboard' && (
+              <button className={styles.navButton}>
+                <Link to="/dashboard" className={styles.navLink}>
+                  Личный кабинет
+                </Link>
+              </button>
+            )
+          ) : (
+            location.pathname !== '/auth' && (
+              <button className={styles.navButton}>
+                <Link to="/auth" className={styles.navLink}>
+                  Вход/Регистрация
+                </Link>
+              </button>
+            )
           )}
         </nav>
       </div>
